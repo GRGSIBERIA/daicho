@@ -14,12 +14,13 @@ class PurchasingLedger:
     def __init__(self):
         self.records = []
     
-    def add(self, buy_date: date, compositions: List[Device]):
+    def add(self, buy_date: date, composition: List[Device]):
         rec = {
             "date": buy_date,
-            "price": sum([device.price for device in compositions]),
-            "tdp": sum([device.tdp for device in compositions]),
-            "btc_income": sum([device.btc_daily_income for device in compositions])
+            "price": sum([device.price for device in composition]),
+            "tdp": sum([device.tdp for device in composition]),
+            "btc_income": sum([device.btc_daily_income for device in composition]),
+            "composition": composition
         }
         self.records.append(rec)
 
